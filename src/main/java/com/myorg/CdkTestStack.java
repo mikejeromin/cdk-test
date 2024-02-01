@@ -1,10 +1,10 @@
 package com.myorg;
 
+import software.amazon.awscdk.RemovalPolicy;
+import software.amazon.awscdk.services.s3.Bucket;
 import software.constructs.Construct;
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
-// import software.amazon.awscdk.Duration;
-// import software.amazon.awscdk.services.sqs.Queue;
 
 public class CdkTestStack extends Stack {
     public CdkTestStack(final Construct scope, final String id) {
@@ -14,11 +14,12 @@ public class CdkTestStack extends Stack {
     public CdkTestStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
 
-        // The code that defines your stack goes here
+        Bucket firstCdkBucket = Bucket.Builder.create(this, "FirstCdkBucket")
+                .versioned(true)
+                .bucketName("mikes-first-cdk-bucket")
+                .removalPolicy(RemovalPolicy.DESTROY)
+                .autoDeleteObjects(true)
+                .build();
 
-        // example resource
-        // final Queue queue = Queue.Builder.create(this, "CdkTestQueue")
-        //         .visibilityTimeout(Duration.seconds(300))
-        //         .build();
     }
 }
