@@ -12,6 +12,9 @@
         <cdk.version>2.124.0</cdk.version>
         <constructs.version>[10.0.0,11.0.0)</constructs.version>
         <junit.version>5.7.1</junit.version>
+<!--        <maven.compiler.target>11</maven.compiler.target>-->
+<!--        <maven.compiler.source>11</maven.compiler.source>-->
+<!--        <java.version>11</java.version>-->
     </properties>
 
     <build>
@@ -33,11 +36,33 @@
                     <mainClass>com.myorg.CdkTestApp</mainClass>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <finalName>function</finalName>
+                    <outputDirectory>./assets</outputDirectory>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
     <dependencies>
         <!-- AWS Cloud Development Kit -->
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-lambda-java-core</artifactId>
+            <version>1.2.2</version>
+        </dependency>
         <dependency>
             <groupId>software.amazon.awscdk</groupId>
             <artifactId>aws-cdk-lib</artifactId>
