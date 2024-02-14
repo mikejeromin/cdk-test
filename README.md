@@ -2,6 +2,10 @@
 Using AWS hello world example to get started.
 https://docs.aws.amazon.com/cdk/v2/guide/hello_world.html
 
+## Stacks
+  - S3 Bucket creation.
+  - Lambda Hello Test Handler that takes in a string to output a response.
+
 ## PreReqs: 
 - npm
   - install
@@ -38,6 +42,7 @@ https://docs.aws.amazon.com/cdk/v2/guide/hello_world.html
     - essentially provisioning resources for aws cdk before you can deploy. Consists of s3 bucket to store files/ iam roles json that grant permissions to do deploy.
   - Deploy this stack to your default AWS account/region
     - `cdk deploy`
+      - 'cdk deploy {stackNameHere}'
   - Modify the app, compare deployed stack with current state
     - `cdk diff`
   - Destroy
