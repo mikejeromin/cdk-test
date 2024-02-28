@@ -6,12 +6,12 @@ import software.constructs.Construct;
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
 
-public class s3BucketTestStack extends Stack {
-    public s3BucketTestStack(final Construct scope, final String id) {
+public class S3BucketTestStack extends Stack {
+    public S3BucketTestStack(final Construct scope, final String id) {
         this(scope, id, null);
     }
 
-    public s3BucketTestStack(final Construct scope, final String id, final StackProps props) {
+    public S3BucketTestStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
 
         Bucket firstCdkBucket = Bucket.Builder.create(this, "FirstCdkBucket")

@@ -8,15 +8,14 @@ import software.amazon.awscdk.services.lambda.Function;
 import software.amazon.awscdk.services.lambda.Runtime;
 import software.constructs.Construct;
 
-public class lambdaTestStack extends Stack {
-    public lambdaTestStack(final Construct scope, final String id) {
+public class LambdaTestStack extends Stack {
+    public LambdaTestStack(final Construct scope, final String id) {
         this(scope, id, null);
     }
 
-    public lambdaTestStack(final Construct scope, final String id, final StackProps props) {
+    public LambdaTestStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
 
-        //create lambda function below
         Function.Builder.create(this, "hello-world-lambda")
                 .runtime(Runtime.JAVA_21)
                 .handler("com.myorg.mike.TestLambda")
